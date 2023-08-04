@@ -15,7 +15,7 @@ class Welcomescreen extends StatelessWidget {
               height: 120,
             ),
             Text(
-              "Hello Again!",
+              "Hello There!",
               style: TextStyle(
                 color: Colors.black,
                 fontSize: 40,
