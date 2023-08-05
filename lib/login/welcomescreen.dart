@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:luminar_assignments/login.dart';
-import 'package:luminar_assignments/registration.dart';
+import 'package:luminar_assignments/login/login.dart';
+import 'package:luminar_assignments/login/registration.dart';
 
 class Welcomescreen extends StatelessWidget {
   const Welcomescreen({super.key});

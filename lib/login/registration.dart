@@ -1,18 +1,18 @@
 import 'package:flutter/material.dart';
-import 'package:luminar_assignments/home.dart';
-import 'package:luminar_assignments/registration.dart';
+import 'package:luminar_assignments/login/home.dart';
 
-class Login extends StatefulWidget {
-  const Login({super.key});
+class Registration extends StatefulWidget {
+  const Registration({super.key});
 
   @override
-  State<Login> createState() => _LoginState();
+  State<Registration> createState() => _RegistrationState();
 }
 
-class _LoginState extends State<Login> {
+class _RegistrationState extends State<Registration> {
   var formkey = GlobalKey<FormState>();
   bool nopasswordvisiblity1 = true;
-  // bool nopasswordvisiblity2 = true;
+  bool nopasswordvisiblity2 = true;
+  String? pass;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -24,28 +24,27 @@ class _LoginState extends State<Login> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Text(
-                "Login",
+                "Sign Up!",
                 style: TextStyle(
-                  color: Colors.black,
                   fontSize: 40,
                   fontWeight: FontWeight.bold,
                 ),
               ),
               SizedBox(
-                height: 6,
+                height: 5,
               ),
               Text(
-                "Welcome back ! login eith your credentials",
+                "Create an account ! it is free",
                 style: TextStyle(
                   color: Colors.grey,
                 ),
               ),
               SizedBox(
-                height: 5,
+                height: 10,
               ),
               TextFormField(
                 validator: (email) {
-                  if (email!.isEmpty || email.contains("@gmail.com")) {
+                  if (email!.isEmpty) {
                     return "enter valid email";
                   } else {
                     return null;
@@ -53,18 +52,19 @@ class _LoginState extends State<Login> {
                 },
                 decoration: InputDecoration(
                   border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(12),
+                    borderRadius: BorderRadius.circular(15),
                   ),
+                  hintText: "Email Id",
                   prefixIcon: Icon(Icons.email),
-                  hintText: "Email ID",
                 ),
               ),
               SizedBox(
-                height: 7,
+                height: 10,
               ),
               TextFormField(
                 obscureText: nopasswordvisiblity1,
                 validator: (password) {
+                  pass = password;
                   if (password!.isEmpty || password.length < 6) {
                     return "password is incorrect";
                   } else {
@@ -73,7 +73,7 @@ class _LoginState extends State<Login> {
                 },
                 decoration: InputDecoration(
                   border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(12),
+                    borderRadius: BorderRadius.circular(15),
                   ),
                   prefixIcon: IconButton(
                     onPressed: () {
@@ -113,6 +113,57 @@ class _LoginState extends State<Login> {
               SizedBox(
                 height: 10,
               ),
+              TextFormField(
+                obscureText: nopasswordvisiblity2,
+                validator: (confirmpassword) {
+                  if (confirmpassword!.isEmpty || confirmpassword != pass) {
+                    return "password do not match";
+                  } else {
+                    return null;
+                  }
+                },
+                decoration: InputDecoration(
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(15),
+                  ),
+                  prefixIcon: IconButton(
+                    onPressed: () {
+                      setState(() {
+                        if (nopasswordvisiblity2 == true) {
+                          nopasswordvisiblity2 = false;
+                        } else {
+                          nopasswordvisiblity2 = true;
+                        }
+                      });
+                    },
+                    icon: Icon(
+                      nopasswordvisiblity2 == true
+                          ? Icons.visibility_off
+                          : Icons.visibility,
+                    ),
+                  ),
+                  hintText: "Re-enter password",
+                  suffixIcon: IconButton(
+                    onPressed: () {
+                      setState(() {
+                        if (nopasswordvisiblity2 == true) {
+                          nopasswordvisiblity2 = false;
+                        } else {
+                          nopasswordvisiblity2 = true;
+                        }
+                      });
+                    },
+                    icon: Icon(
+                      nopasswordvisiblity2 == true
+                          ? Icons.visibility_off
+                          : Icons.visibility,
+                    ),
+                  ),
+                ),
+              ),
+              SizedBox(
+                height: 10,
+              ),
               ElevatedButton(
                 style: ElevatedButton.styleFrom(
                     backgroundColor: Colors.green,
@@ -122,34 +173,34 @@ class _LoginState extends State<Login> {
                     minimumSize: Size(400, 50)),
                 onPressed: () {
                   final valid = formkey.currentState!.validate();
-                  if (valid) {
-                    Navigator.of(context).push(
-                        MaterialPageRoute(builder: (context) => Homescreen()));
-                  } else {
-                    ScaffoldMessenger.of(context).showSnackBar(
-                      SnackBar(
-                        backgroundColor: Colors.red,
-                        content: Text("enter correct email and password"),
-                      ),
-                    );
-                  }
+                  setState(() {
+                    if (valid) {
+                      Navigator.of(context).push(
+                        MaterialPageRoute(builder: (context) => Homescreen()),
+                      );
+                    } else {
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        SnackBar(
+                          backgroundColor: Colors.red,
+                          content: Text("enter valid details"),
+                        ),
+                      );
+                    }
+                  });
                 },
-                child: Text("Login"),
+                child: Text("Sign up"),
               ),
               TextButton(
-                  onPressed: () {
-                    Navigator.of(context).push(
-                      MaterialPageRoute(
-                        builder: (context) => Registration(),
-                      ),
-                    );
-                  },
-                  child: Text(
-                    "Do you have an account? sign up",
-                    style: TextStyle(
-                      color: Colors.grey,
-                    ),
-                  )),
+                onPressed: () {
+                  Navigator.of(context).pop();
+                },
+                child: Text(
+                  "Do you have an account? Login",
+                  style: TextStyle(
+                    color: Colors.grey,
+                  ),
+                ),
+              ),
             ],
           ),
         ),

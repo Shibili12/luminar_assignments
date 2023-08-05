@@ -1,7 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:luminar_assignments/welcomescreen.dart';
+import 'package:luminar_assignments/login/welcomescreen.dart';
 
 class Splashscreen extends StatefulWidget {
   const Splashscreen({super.key});

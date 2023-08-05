@@ -1,18 +1,18 @@
 import 'package:flutter/material.dart';
-import 'package:luminar_assignments/home.dart';
+import 'package:luminar_assignments/login/home.dart';
+import 'package:luminar_assignments/login/registration.dart';
 
-class Registration extends StatefulWidget {
-  const Registration({super.key});
+class Login extends StatefulWidget {
+  const Login({super.key});
 
   @override
-  State<Registration> createState() => _RegistrationState();
+  State<Login> createState() => _LoginState();
 }
 
-class _RegistrationState extends State<Registration> {
+class _LoginState extends State<Login> {
   var formkey = GlobalKey<FormState>();
   bool nopasswordvisiblity1 = true;
-  bool nopasswordvisiblity2 = true;
-  String? pass;
+  // bool nopasswordvisiblity2 = true;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -24,27 +24,28 @@ class _RegistrationState extends State<Registration> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Text(
-                "Sign Up!",
+                "Login",
                 style: TextStyle(
+                  color: Colors.black,
                   fontSize: 40,
                   fontWeight: FontWeight.bold,
                 ),
               ),
               SizedBox(
-                height: 5,
+                height: 6,
               ),
               Text(
-                "Create an account ! it is free",
+                "Welcome back ! login eith your credentials",
                 style: TextStyle(
                   color: Colors.grey,
                 ),
               ),
               SizedBox(
-                height: 10,
+                height: 5,
               ),
               TextFormField(
                 validator: (email) {
-                  if (email!.isEmpty) {
+                  if (email!.isEmpty || email.contains("@gmail.com")) {
                     return "enter valid email";
                   } else {
                     return null;
@@ -52,19 +53,18 @@ class _RegistrationState extends State<Registration> {
                 },
                 decoration: InputDecoration(
                   border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(15),
+                    borderRadius: BorderRadius.circular(12),
                   ),
-                  hintText: "Email Id",
                   prefixIcon: Icon(Icons.email),
+                  hintText: "Email ID",
                 ),
               ),
               SizedBox(
-                height: 10,
+                height: 7,
               ),
               TextFormField(
                 obscureText: nopasswordvisiblity1,
                 validator: (password) {
-                  pass = password;
                   if (password!.isEmpty || password.length < 6) {
                     return "password is incorrect";
                   } else {
@@ -73,7 +73,7 @@ class _RegistrationState extends State<Registration> {
                 },
                 decoration: InputDecoration(
                   border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(15),
+                    borderRadius: BorderRadius.circular(12),
                   ),
                   prefixIcon: IconButton(
                     onPressed: () {
@@ -113,57 +113,6 @@ class _RegistrationState extends State<Registration> {
               SizedBox(
                 height: 10,
               ),
-              TextFormField(
-                obscureText: nopasswordvisiblity2,
-                validator: (confirmpassword) {
-                  if (confirmpassword!.isEmpty || confirmpassword != pass) {
-                    return "password do not match";
-                  } else {
-                    return null;
-                  }
-                },
-                decoration: InputDecoration(
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(15),
-                  ),
-                  prefixIcon: IconButton(
-                    onPressed: () {
-                      setState(() {
-                        if (nopasswordvisiblity2 == true) {
-                          nopasswordvisiblity2 = false;
-                        } else {
-                          nopasswordvisiblity2 = true;
-                        }
-                      });
-                    },
-                    icon: Icon(
-                      nopasswordvisiblity2 == true
-                          ? Icons.visibility_off
-                          : Icons.visibility,
-                    ),
-                  ),
-                  hintText: "Re-enter password",
-                  suffixIcon: IconButton(
-                    onPressed: () {
-                      setState(() {
-                        if (nopasswordvisiblity2 == true) {
-                          nopasswordvisiblity2 = false;
-                        } else {
-                          nopasswordvisiblity2 = true;
-                        }
-                      });
-                    },
-                    icon: Icon(
-                      nopasswordvisiblity2 == true
-                          ? Icons.visibility_off
-                          : Icons.visibility,
-                    ),
-                  ),
-                ),
-              ),
-              SizedBox(
-                height: 10,
-              ),
               ElevatedButton(
                 style: ElevatedButton.styleFrom(
                     backgroundColor: Colors.green,
@@ -173,34 +122,34 @@ class _RegistrationState extends State<Registration> {
                     minimumSize: Size(400, 50)),
                 onPressed: () {
                   final valid = formkey.currentState!.validate();
-                  setState(() {
-                    if (valid) {
-                      Navigator.of(context).push(
-                        MaterialPageRoute(builder: (context) => Homescreen()),
-                      );
-                    } else {
-                      ScaffoldMessenger.of(context).showSnackBar(
-                        SnackBar(
-                          backgroundColor: Colors.red,
-                          content: Text("enter valid details"),
-                        ),
-                      );
-                    }
-                  });
+                  if (valid) {
+                    Navigator.of(context).push(
+                        MaterialPageRoute(builder: (context) => Homescreen()));
+                  } else {
+                    ScaffoldMessenger.of(context).showSnackBar(
+                      SnackBar(
+                        backgroundColor: Colors.red,
+                        content: Text("enter correct email and password"),
+                      ),
+                    );
+                  }
                 },
-                child: Text("Sign up"),
+                child: Text("Login"),
               ),
               TextButton(
-                onPressed: () {
-                  Navigator.of(context).pop();
-                },
-                child: Text(
-                  "Do you have an account? Login",
-                  style: TextStyle(
-                    color: Colors.grey,
-                  ),
-                ),
-              ),
+                  onPressed: () {
+                    Navigator.of(context).push(
+                      MaterialPageRoute(
+                        builder: (context) => Registration(),
+                      ),
+                    );
+                  },
+                  child: Text(
+                    "Do you have an account? sign up",
+                    style: TextStyle(
+                      color: Colors.grey,
+                    ),
+                  )),
             ],
           ),
         ),
