@@ -34,9 +34,12 @@ class Listviewseparated extends StatelessWidget {
           return Card(
             child: Container(
               height: 50,
-              child: Text(
-                months[index],
-                style: TextStyle(fontSize: 20),
+              child: Align(
+                alignment: Alignment.centerLeft,
+                child: Text(
+                  months[index],
+                  style: TextStyle(fontSize: 20),
+                ),
               ),
             ),
           );
