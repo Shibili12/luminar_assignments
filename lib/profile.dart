@@ -56,7 +56,7 @@ class Profile extends StatelessWidget {
             Center(
               child: CircleAvatar(
                 radius: 50,
-                backgroundImage: AssetImage("assets/images/swalih.jpeg"),
+                backgroundImage: AssetImage("assets/images/dq.avif"),
               ),
             ),
             SizedBox(
