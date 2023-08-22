@@ -1,12 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:luminar_assignments/hotelui/dummylist.dart';
 
-void main() {
-  runApp(MaterialApp(
-    home: Hoteldetails(),
-  ));
-}
-
 class Hoteldetails extends StatelessWidget {
   const Hoteldetails({super.key});
 
