@@ -18,31 +18,62 @@ class Hotelwidget extends StatelessWidget {
       child: Column(
         children: [
           Container(
+            height: 200,
+            width: double.infinity,
             decoration: BoxDecoration(
               image: DecorationImage(
                   fit: BoxFit.cover, image: NetworkImage(image)),
             ),
             child: Stack(
               children: [
-                Icon(
-                  Icons.star_border,
-                  color: Colors.white,
+                Positioned(
+                  right: 10,
+                  top: 10,
+                  child: Icon(
+                    Icons.star_border,
+                    color: Colors.white,
+                  ),
                 ),
-                Container(
-                  height: 15,
-                  width: 20,
-                  child: Center(
-                    child: Text(price),
+                Positioned(
+                  right: 10,
+                  bottom: 10,
+                  child: Container(
+                    color: Colors.white,
+                    height: 30,
+                    width: 50,
+                    child: Center(
+                      child: Text(price),
+                    ),
                   ),
                 ),
               ],
             ),
           ),
-          Text(
-            hotelname,
-            style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+          SizedBox(
+            height: 10,
           ),
-          Text(location),
+          Align(
+            alignment: Alignment.centerLeft,
+            child: Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Text(
+                hotelname,
+                style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+              ),
+            ),
+          ),
+          Align(
+            alignment: Alignment.centerLeft,
+            child: Padding(
+              padding: const EdgeInsets.only(
+                left: 8,
+              ),
+              child: Text(location),
+            ),
+          ),
+          SizedBox(
+            height: 20,
+          ),
         ],
       ),
     );

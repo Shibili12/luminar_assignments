@@ -6,8 +6,9 @@ class Hoteldetails extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final hotelid = ModalRoute.of(context)?.settings.arguments;
     final listfromhotel = hotellist.firstWhere(
-      (element) => element['id'] == '1',
+      (element) => element['id'] == hotelid,
     );
     return Scaffold(
       body: Column(
