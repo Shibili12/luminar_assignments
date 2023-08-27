@@ -1,4 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:luminar_assignments/whatsappui/callscree.dart';
+import 'package:luminar_assignments/whatsappui/community.dart';
+import 'package:luminar_assignments/whatsappui/settings.dart';
+import 'package:luminar_assignments/whatsappui/status.dart';
+import 'package:luminar_assignments/whatsappui/whatsappui.dart';
 
 void main() {
   runApp(MaterialApp(
@@ -15,6 +20,14 @@ class Whatsappbottom extends StatefulWidget {
 
 class _WhatsappbottomState extends State<Whatsappbottom> {
   int index = 0;
+
+  var screens = [
+    Statusscreen(),
+    Callscreen(),
+    CommunityScreen(),
+    Whatsappui(),
+    Settingscreen(),
+  ];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -26,7 +39,7 @@ class _WhatsappbottomState extends State<Whatsappbottom> {
         currentIndex: index,
         onTap: (tappedindex) {
           setState(() {
-            tappedindex = index;
+            index = tappedindex;
           });
         },
         items: const [
@@ -42,6 +55,7 @@ class _WhatsappbottomState extends State<Whatsappbottom> {
               icon: Icon(Icons.settings), label: "Settings"),
         ],
       ),
+      body: screens[index],
     );
   }
 }
