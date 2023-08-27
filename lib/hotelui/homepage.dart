@@ -143,6 +143,7 @@ class Hotelhome extends StatelessWidget {
                 children: hotellist
                     .map(
                       (hotelonebyone) => Hotelwidget(
+                          onClicked: gotodetails(context, hotelonebyone['id']),
                           hotelname: hotelonebyone['name'],
                           image: "${hotelonebyone['room']}",
                           location: hotelonebyone['location'],
