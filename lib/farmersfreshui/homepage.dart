@@ -1,14 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:luminar_assignments/farmersfreshui/carosalsection.dart';
+import 'package:luminar_assignments/farmersfreshui/categorysection.dart';
 import 'package:luminar_assignments/farmersfreshui/featuressection.dart';
 import 'package:luminar_assignments/farmersfreshui/tabsection.dart';
-
-void main() {
-  runApp(MaterialApp(
-    home: Homepage(),
-  ));
-}
 
 class Homepage extends StatelessWidget {
   const Homepage({super.key});
@@ -66,9 +61,17 @@ class Homepage extends StatelessWidget {
                   Tabsection(),
                   Carousalsection(),
                   Padding(
-                    padding: const EdgeInsets.all(8.0),
+                    padding: const EdgeInsets.all(12.0),
                     child: Features(),
                   ),
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Text(
+                      "Shop By Category",
+                      style: TextStyle(fontSize: 22),
+                    ),
+                  ),
+                  Category(),
                 ],
               ),
             ),

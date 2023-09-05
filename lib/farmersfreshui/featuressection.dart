@@ -6,9 +6,9 @@ class Features extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 70,
+      height: 80,
       decoration: BoxDecoration(
-        border: Border.all(width: .2),
+        border: Border.all(width: .2, color: Colors.black26),
         borderRadius: BorderRadius.circular(5),
       ),
       child: Row(
@@ -49,7 +49,13 @@ class Columnitems extends StatelessWidget {
           icon,
           color: Colors.green,
         ),
-        Text(name),
+        SizedBox(
+          height: 5,
+        ),
+        Text(
+          name,
+          style: TextStyle(fontSize: 12),
+        ),
       ],
     );
   }
