@@ -1,10 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:luminar_assignments/touristappui/homepage.dart';
+import 'package:luminar_assignments/touristappui/touristdetails.dart';
 
 void main() {
   runApp(MaterialApp(
     debugShowCheckedModeBanner: false,
     home: Welcomepage(),
+    routes: {
+      'details': (context) => Touristdetails(),
+    },
   ));
 }
 
