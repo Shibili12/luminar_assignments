@@ -76,7 +76,7 @@ class Hotelhome extends StatelessWidget {
                     borderRadius: BorderRadius.circular(5),
                     color: Colors.pink,
                   ),
-                  child: Column(
+                  child: const Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Icon(
@@ -118,7 +118,7 @@ class Hotelhome extends StatelessWidget {
                     borderRadius: BorderRadius.circular(5),
                     color: Colors.orange,
                   ),
-                  child: Column(
+                  child: const Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Icon(

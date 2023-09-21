@@ -89,13 +89,14 @@ class HomepageTourist extends StatelessWidget {
           Container(
             height: 400,
             child: GridView(
-              gridDelegate:
-                  SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2),
+              padding: EdgeInsets.all(8),
+              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                  crossAxisCount: 2, mainAxisSpacing: 10, crossAxisSpacing: 10),
               children: touristlist
                   .map((e) => Touristwidget(
                         image: e['image1'],
                         name: e['title'],
-                        onclick: gotodetails(context, e['id']),
+                        onclick: () => gotodetails(context, e['id']),
                         rating: e['rating'],
                       ))
                   .toList(),
@@ -118,7 +119,7 @@ class HomepageTourist extends StatelessWidget {
     );
   }
 
-  gotodetails(BuildContext context, touristid) {
-    Navigator.pushNamed(context, 'details', arguments: touristid);
+  void gotodetails(BuildContext context, touristid) {
+    Navigator.pushNamed(context, 'Details', arguments: touristid);
   }
 }

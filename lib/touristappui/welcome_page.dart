@@ -1,16 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:luminar_assignments/touristappui/homepage.dart';
-import 'package:luminar_assignments/touristappui/touristdetails.dart';
-
-void main() {
-  runApp(MaterialApp(
-    debugShowCheckedModeBanner: false,
-    home: Welcomepage(),
-    routes: {
-      'details': (context) => Touristdetails(),
-    },
-  ));
-}
 
 class Welcomepage extends StatelessWidget {
   const Welcomepage({super.key});
@@ -28,8 +16,7 @@ class Welcomepage extends StatelessWidget {
             ),
             ElevatedButton(
               onPressed: () {
-                Navigator.of(context).push(MaterialPageRoute(
-                    builder: ((context) => HomepageTourist())));
+                Navigator.of(context).pushNamed('Homepage');
               },
               child: Text("Login"),
             ),

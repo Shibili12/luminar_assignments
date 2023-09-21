@@ -24,26 +24,40 @@ class _TouristdetailsState extends State<Touristdetails> {
               padding: const EdgeInsets.all(8.0),
               child: Row(
                 children: [
-                  Column(
-                    children: [
-                      Text(
-                        listfromtourist['subtitle'],
-                        style: TextStyle(
-                          fontSize: 18,
-                          fontWeight: FontWeight.bold,
+                  Expanded(
+                    flex: 2,
+                    child: Column(
+                      children: [
+                        Text(
+                          listfromtourist['subtitle'],
+                          style: TextStyle(
+                            fontSize: 18,
+                            fontWeight: FontWeight.bold,
+                          ),
                         ),
-                      ),
-                      Text(listfromtourist['rating']),
-                    ],
+                        SizedBox(
+                          height: 4,
+                        ),
+                        Row(
+                          children: [
+                            Text(listfromtourist['rating']),
+                            Text("Ratings"),
+                          ],
+                        ),
+                      ],
+                    ),
                   ),
-                  Container(
-                    height: 100,
-                    width: 100,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(15),
-                      image: DecorationImage(
-                          fit: BoxFit.cover,
-                          image: NetworkImage(listfromtourist['image1'])),
+                  Expanded(
+                    flex: 1,
+                    child: Container(
+                      height: 100,
+                      width: 100,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(15),
+                        image: DecorationImage(
+                            fit: BoxFit.cover,
+                            image: NetworkImage(listfromtourist['image1'])),
+                      ),
                     ),
                   ),
                 ],
@@ -52,19 +66,37 @@ class _TouristdetailsState extends State<Touristdetails> {
           ),
           Container(
             height: 130,
-            child: Column(
-              children: [
-                Text(
-                  "About Place",
-                  style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+            child: Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: SingleChildScrollView(
+                child: Column(
+                  children: [
+                    Align(
+                      alignment: Alignment.centerLeft,
+                      child: Text(
+                        "About Place",
+                        style: TextStyle(
+                            fontSize: 20, fontWeight: FontWeight.bold),
+                      ),
+                    ),
+                    SizedBox(
+                      height: 10,
+                    ),
+                    Text(listfromtourist['about']),
+                  ],
                 ),
-                Text(listfromtourist['about']),
-              ],
+              ),
             ),
           ),
-          const Text(
-            "Special Facilities",
-            style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+          SizedBox(
+            height: 10,
+          ),
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: const Text(
+              "Special Facilities",
+              style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+            ),
           ),
           Container(
             height: 50,
@@ -113,7 +145,7 @@ class _TouristdetailsState extends State<Touristdetails> {
           Padding(
             padding: const EdgeInsets.all(12.0),
             child: Container(
-              height: 250,
+              height: 200,
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(15),
                 image: DecorationImage(
@@ -127,60 +159,71 @@ class _TouristdetailsState extends State<Touristdetails> {
             "Special Facilities",
             style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
           ),
-          Container(
-            height: 50,
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                Container(
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(15),
-                    color: Colors.lightBlue,
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Container(
+              height: 50,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  Container(
+                    width: 80,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(15),
+                      color: Colors.lightBlue[100],
+                    ),
+                    child: const Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text("Adult"),
+                        Text("02"),
+                      ],
+                    ),
                   ),
-                  child: const Column(
-                    children: [
-                      Text("Adult"),
-                      Text("02"),
-                    ],
+                  Container(
+                    width: 80,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(15),
+                      color: Colors.lightBlue[100],
+                    ),
+                    child: const Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text("Adult"),
+                        Text("02"),
+                      ],
+                    ),
                   ),
-                ),
-                Container(
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(15),
-                    color: Colors.lightBlue,
+                  Container(
+                    width: 80,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(15),
+                      color: Colors.lightBlue[100],
+                    ),
+                    child: const Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text("Adult"),
+                        Text("02"),
+                      ],
+                    ),
                   ),
-                  child: const Column(
-                    children: [
-                      Text("Adult"),
-                      Text("02"),
-                    ],
+                  Container(
+                    width: 80,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(15),
+                      color: Colors.lightBlue[100],
+                    ),
+                    child: const Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text("Adult"),
+                        Text("02"),
+                      ],
+                    ),
                   ),
-                ),
-                Container(
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(15),
-                    color: Colors.lightBlue,
-                  ),
-                  child: const Column(
-                    children: [
-                      Text("Adult"),
-                      Text("02"),
-                    ],
-                  ),
-                ),
-                Container(
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(15),
-                    color: Colors.lightBlue,
-                  ),
-                  child: const Column(
-                    children: [
-                      Text("Adult"),
-                      Text("02"),
-                    ],
-                  ),
-                ),
-              ],
+                ],
+              ),
             ),
           ),
           Padding(

@@ -3,7 +3,7 @@ List<Map<String, dynamic>> touristlist = [
     'id': '1',
     'title': 'Furiousplace',
     'subtitle': 'Most Furious place & Natural Place',
-    'rating': "4.7 rating",
+    'rating': "4.7",
     'about':
         '''Tawang, Ziro Valley, Roing, Sela Pass, Namdapha National Park, Bomdila, Dirang, Tezu, Pasighat, Nuranang Falls, Mechuka, Itanagar, Along, Bhalukpong, Sangti, Changlang, Bumla Pass, Anini, Daporijo,Hayuliang Village, Pakhui Wildlife Sanctuary, Gorichen Peak, and many more beautiful places.''',
     'image1':
@@ -15,7 +15,7 @@ List<Map<String, dynamic>> touristlist = [
     'id': '2',
     'title': 'Luxury place',
     'subtitle': 'Most Famous Luxury  Place',
-    'rating': "4.8 rating",
+    'rating': "4.8",
     'about':
         '''Tawang, Ziro Valley, Roing, Sela Pass, Namdapha National Park, Bomdila, Dirang, Tezu, Pasighat, Nuranang Falls, Mechuka, Itanagar, Along, Bhalukpong, Sangti, Changlang, Bumla Pass, Anini, Daporijo,Hayuliang Village, Pakhui Wildlife Sanctuary, Gorichen Peak, and many more beautiful places.''',
     'image1':
@@ -27,7 +27,7 @@ List<Map<String, dynamic>> touristlist = [
     'id': '3',
     'title': 'Favorite place',
     'subtitle': 'Most Furious place & Natural Place',
-    'rating': "4.9 rating",
+    'rating': "4.9",
     'about':
         '''Tawang, Ziro Valley, Roing, Sela Pass, Namdapha National Park, Bomdila, Dirang, Tezu, Pasighat, Nuranang Falls, Mechuka, Itanagar, Along, Bhalukpong, Sangti, Changlang, Bumla Pass, Anini, Daporijo,Hayuliang Village, Pakhui Wildlife Sanctuary, Gorichen Peak, and many more beautiful places.''',
     'image1':
@@ -39,7 +39,7 @@ List<Map<String, dynamic>> touristlist = [
     'id': '4',
     'title': 'Nature place',
     'subtitle': 'Most Famous Natural Place',
-    'rating': "4.1 rating",
+    'rating': "4.1",
     'about':
         '''Tawang, Ziro Valley, Roing, Sela Pass, Namdapha National Park, Bomdila, Dirang, Tezu, Pasighat, Nuranang Falls, Mechuka, Itanagar, Along, Bhalukpong, Sangti, Changlang, Bumla Pass, Anini, Daporijo,Hayuliang Village, Pakhui Wildlife Sanctuary, Gorichen Peak, and many more beautiful places.''',
     'image1':
